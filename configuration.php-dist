@@ -1,0 +1,41 @@
+<?php
+/**
+ * This file holds the customization settings used to create a sitemap file holding all DisplayCases installations.
+ *
+ * PHP version 8
+ *
+ * @category   LIBWebApplication
+ * @package    DisplayCaseSitemap
+ * @author     Steven Orr <sorr@mail.fresnostate.edu>
+ * @copyright  2026 Fresno State Library, Fresno State 
+ * @license    http://opensource.org/licenses/gpl-3.0.html GNU Public License v3
+ * @link       https://github.com/fresnostate-library/displaycase_sitemap
+*/
+
+error_reporting(0);
+
+/*
+ * The following are hints on what values to put in the multi-dimensional array below.
+ * 
+ * "app" section: 
+ *     - googleApiKey = Google API Key obtained by following these instructions:  
+ *          https://support.google.com/googleapi/answer/6158862
+ *     - fullPathToFile = Path to where this written file is located, from server root, including the file name.
+ *
+ * "sheetData" section contains arrays, each with three values: 
+ *     - owner = String of characters that identifies the Google Sheet data backend.
+ *     - googleSheetId = Use the ID from the Google Sheet URL, found between the "/d/" and "/edit" strings.
+ *     - baseUrl = The base URL for this displaycase installation.
+ *
+ */
+return array(
+    'app' => array(
+        'googleApiKey' => "AIzaSyA__random-assigned-API-key__Dzy_Eww",
+        'fullPathToFile' => "/full/path/to/target/location/sitemap.xml"
+    ),
+    'sheetData' => array(
+        ["displaycase-name-01", "sheet-id-01", "https://my.library.edu/d01/"],
+        ["displaycase-name-02", "sheet-id-02", "https://my.library.edu/displaycase/d02/"],
+        ["displaycase-name-03", "sheet-id-03", "https://my.library.edu/exhibits/d03/"]
+    ),
+);
