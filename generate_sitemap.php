@@ -21,13 +21,14 @@ declare(strict_types=1);
 /**
  * Build an XML sitemap from the tab names in one or more Google Sheets,
  * excluding any tab whose title is exactly "example" or begins with "!!".
+ * The generated XML includes a comment with its date and URL count.
  *
- * 1) Place this file beside configuration.php outside the webroot. 
- * 2) Set app.fullPathToFile to the complete absolute path of the sitemap file, for example:
+ * Place this file beside configuration.php outside the webroot. Set
+ * app.fullPathToFile to the complete absolute path of the sitemap, for example:
  *
  *     'fullPathToFile' => '/var/www/html/displaycase/sitemap.xml'
  *
- * 3) Then run:
+ * Then run:
  *
  *     php generate_sitemap.php
  */
@@ -325,6 +326,11 @@ function createSitemapXml(array $locations): string
 {
     $lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
+        sprintf(
+            '<!-- Generated: %s; Location URLs included: %d -->',
+            date('Y-m-d'),
+            count($locations)
+        ),
         '<urlset xmlns="' . SITEMAP_NAMESPACE . '">',
     ];
 
